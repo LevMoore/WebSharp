@@ -1,0 +1,1 @@
+var value = "Hello";var value2 = 42;window.onload = function (){}function ClickButton(){document.getElementById("1").value="1";document.getElementById("2").innerHTML="2";}

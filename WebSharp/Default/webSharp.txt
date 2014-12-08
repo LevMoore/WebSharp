@@ -1,0 +1,13 @@
+﻿string value = "Hello";
+int value2 = 42;
+
+void Start()
+{
+
+}
+
+void ClickButton()
+{
+	Document.FindByID("1").value = "1";
+	Document.FindByID("2").innerHTML = "2";
+}

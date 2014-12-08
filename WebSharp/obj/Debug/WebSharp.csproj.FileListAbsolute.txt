@@ -1,0 +1,29 @@
+D:\Web Sharp\WebSharp\WebSharp\bin\Debug\WebSharp.exe.config
+D:\Web Sharp\WebSharp\WebSharp\obj\Debug\WebSharp.csprojResolveAssemblyReference.cache
+D:\Web Sharp\WebSharp\WebSharp\obj\Debug\WebSharp.Properties.Resources.resources
+D:\Web Sharp\WebSharp\WebSharp\obj\Debug\WebSharp.csproj.GenerateResource.Cache
+D:\Web Sharp\WebSharp\WebSharp\bin\Debug\ScintillaNET.xml
+D:\Web Sharp\WebSharp\WebSharp\bin\Debug\WebSharp.exe
+D:\Web Sharp\WebSharp\WebSharp\bin\Debug\WebSharp.pdb
+D:\Web Sharp\WebSharp\WebSharp\bin\Debug\ScintillaNET.dll
+D:\Web Sharp\WebSharp\WebSharp\bin\Debug\ScintillaNET.pdb
+D:\Web Sharp\WebSharp\WebSharp\obj\Debug\WebSharp.exe
+D:\Web Sharp\WebSharp\WebSharp\obj\Debug\WebSharp.pdb
+D:\Web Sharp\WebSharp\WebSharp\bin\Debug\Default\css.txt
+D:\Web Sharp\WebSharp\WebSharp\bin\Debug\Default\html.txt
+D:\Web Sharp\WebSharp\WebSharp\bin\Debug\Default\webSharp.txt
+D:\Web Sharp\WebSharp\WebSharp\obj\Debug\Web_Sharp.Form1.resources
+D:\WebSharp\WebSharp\bin\Debug\WebSharp.exe.config
+D:\WebSharp\WebSharp\obj\Debug\WebSharp.exe
+D:\WebSharp\WebSharp\obj\Debug\WebSharp.pdb
+D:\WebSharp\WebSharp\bin\Debug\Default\css.txt
+D:\WebSharp\WebSharp\bin\Debug\Default\html.txt
+D:\WebSharp\WebSharp\bin\Debug\ScintillaNET.xml
+D:\WebSharp\WebSharp\bin\Debug\Default\webSharp.txt
+D:\WebSharp\WebSharp\bin\Debug\WebSharp.exe
+D:\WebSharp\WebSharp\bin\Debug\WebSharp.pdb
+D:\WebSharp\WebSharp\bin\Debug\ScintillaNET.pdb
+D:\WebSharp\WebSharp\obj\Debug\WebSharp.csprojResolveAssemblyReference.cache
+D:\WebSharp\WebSharp\obj\Debug\Web_Sharp.Form1.resources
+D:\WebSharp\WebSharp\obj\Debug\WebSharp.Properties.Resources.resources
+D:\WebSharp\WebSharp\obj\Debug\WebSharp.csproj.GenerateResource.Cache

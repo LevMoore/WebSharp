@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ScintillaNET>
+  <Language Name="default">
+    <Styles>
+      <Style Name="Default" FontName="Consolas"/>
+    </Styles>
+  </Language>
+
+  <Language Name="cs">
+    <Indentation TabWidth="5" UseTabs="true"/>
+    <Styles>
+      <Style Name="CHARACTER" ForeColor="Black" BackColor="Red"/>
+    </Styles>
+  </Language>
+</ScintillaNET>
