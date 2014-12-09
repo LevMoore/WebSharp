@@ -1,13 +1,18 @@
-﻿string value = "Hello";
-int value2 = 42;
+﻿string value = "1";
+int value2 = 2;
 
 void Start()
 {
 
 }
 
-void ClickButton()
+void ClickButton1()
 {
-	Document.FindByID("1").value = "1";
-	Document.FindByID("2").innerHTML = "2";
+	Document.FindByID("button1").value = value;
+	Document.FindByID("pText").innerHTML = value2;
+}
+
+void ClickButton2()
+{
+	Window.Navigate("https://www.google.dk");
 }

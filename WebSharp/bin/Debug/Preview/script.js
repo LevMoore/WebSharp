@@ -1,1 +1,1 @@
-var value = "Hello";var value2 = 42;window.onload = function (){}function ClickButton(){document.getElementById("1").value="1";document.getElementById("2").innerHTML="2";}
+var value = "1";var value2 = 2;window.onload = function (){}function ClickButton1(){document.getElementById("button1").value=value;document.getElementById("pText").innerHTML=value2;}function ClickButton2(){window.location.href = "https://www.google.dk";}

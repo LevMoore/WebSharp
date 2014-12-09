@@ -90,7 +90,7 @@ namespace Web_Sharp
             //compile w# code to javascript
             Compiler _compiler = new Compiler();
             string _code = _compiler.CompileWSCode(textbox_ws.Text);
-
+            
             //save javascript
             using (FileStream fs = File.Create(path + "script.js"))
             {
@@ -366,6 +366,13 @@ namespace Web_Sharp
                     DirectoryCopy(subdir.FullName, temppath, copySubDirs);
                 }
             }
+        }
+
+        private void button_openFolder_Click(object sender, EventArgs e)
+        {
+            string path = Environment.CurrentDirectory;
+
+            Process.Start(path + @"\Save\");
         }
     }
 }

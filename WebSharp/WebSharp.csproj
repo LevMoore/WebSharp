@@ -32,8 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ScintillaNET">
-      <HintPath>..\..\ScintillaNET v2.6\ScintillaNET.dll</HintPath>
+    <Reference Include="ScintillaNET, Version=2.6.0.0, Culture=neutral, PublicKeyToken=948d6c9751444115, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ScintillaNET\ScintillaNET.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -54,6 +55,8 @@
     <Compile Include="Compiler\Methods\Alert_Code.cs" />
     <Compile Include="Compiler\Methods\Document\DocumentFindByID_Code.cs" />
     <Compile Include="Compiler\Methods\Document\Document_Code.cs" />
+    <Compile Include="Compiler\Methods\Window\WindowNavigate_Code.cs" />
+    <Compile Include="Compiler\Methods\Window\Window_Code.cs" />
     <Compile Include="Compiler\Other\BaseCode.cs" />
     <Compile Include="Compiler\Other\Class_Code.cs" />
     <Compile Include="Compiler\Other\CodeList.cs" />

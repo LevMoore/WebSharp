@@ -39,6 +39,7 @@
             this.tabWeb = new System.Windows.Forms.TabPage();
             this.webBrowserHTML = new System.Windows.Forms.WebBrowser();
             this.button_save = new System.Windows.Forms.Button();
+            this.button_openFolder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.textbox_ws)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textbox_html)).BeginInit();
             this.tabControl.SuspendLayout();
@@ -108,7 +109,7 @@
             // checkBox_autoOpen
             // 
             this.checkBox_autoOpen.AutoSize = true;
-            this.checkBox_autoOpen.Location = new System.Drawing.Point(93, 553);
+            this.checkBox_autoOpen.Location = new System.Drawing.Point(174, 552);
             this.checkBox_autoOpen.Name = "checkBox_autoOpen";
             this.checkBox_autoOpen.Size = new System.Drawing.Size(75, 17);
             this.checkBox_autoOpen.TabIndex = 3;
@@ -197,11 +198,22 @@
             this.button_save.UseVisualStyleBackColor = true;
             this.button_save.Click += new System.EventHandler(this.button_save_Click);
             // 
+            // button_openFolder
+            // 
+            this.button_openFolder.Location = new System.Drawing.Point(93, 547);
+            this.button_openFolder.Name = "button_openFolder";
+            this.button_openFolder.Size = new System.Drawing.Size(75, 23);
+            this.button_openFolder.TabIndex = 6;
+            this.button_openFolder.Text = "Open";
+            this.button_openFolder.UseVisualStyleBackColor = true;
+            this.button_openFolder.Click += new System.EventHandler(this.button_openFolder_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1131, 582);
+            this.Controls.Add(this.button_openFolder);
             this.Controls.Add(this.button_save);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.checkBox_autoOpen);
@@ -234,6 +246,7 @@
         private System.Windows.Forms.TabPage tabCSS;
         private ScintillaNET.Scintilla textbox_css;
         private System.Windows.Forms.Button button_save;
+        private System.Windows.Forms.Button button_openFolder;
     }
 }
 

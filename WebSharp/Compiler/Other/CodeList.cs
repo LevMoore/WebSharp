@@ -21,7 +21,8 @@ namespace Web_Sharp
         //Methods
         public static List<BaseCode> listMethods = new List<BaseCode>() {
             new Alert_Code(),
-            new Document_Code()
+            new Document_Code(),
+            new Window_Code()
         };
 
         public static string GetDataTypeHighlights()
