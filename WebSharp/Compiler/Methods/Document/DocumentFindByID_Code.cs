@@ -7,10 +7,12 @@ namespace Web_Sharp
 {
     class DocumentFindByID_Code : BaseCode
     {
+        ElementValues_Code _code;
         public DocumentFindByID_Code()
         {
+            _code = new ElementValues_Code();
             name = "FindByID";
-            autoComplete = new List<string>() { "value", "innerHTML" };
+            autoComplete = _code.autoComplete;
         }
 
         public override bool Run()
@@ -22,34 +24,11 @@ namespace Web_Sharp
                 {
                     AddCode("getElementById(" + _string + ").");
 
-                    string _token = NextToken();
-                    //value
-                    if (_token == "value")
-                    {
-                        AddCode("value");
-                        if (NextToken() == "=")
-                        {
-                            AddCode("=" + NextToken() + ";");
-                        }
-                        else return false;
-                    }
-                    //innerHTML
-                    else if (_token == "innerHTML")
-                    {
-                        AddCode("innerHTML");
-                        if (NextToken() == "=")
-                        {
-                            AddCode("=" + NextToken() + ";");
-                        }
-                        else return false;
-                    }
-                    else return false;
+                    return _code.Run();
                 }
                 else return false;
             }
             else return false;
-
-            return true;
         }
     }
 }

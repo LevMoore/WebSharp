@@ -60,12 +60,13 @@ namespace Web_Sharp
 
             //Lexer
             string _keywords0 = CodeList.GetDataTypeHighlights();
+            _keywords0 += CodeList.GetLogicalHighlights();
             _keywords0 += CodeList.GetClassHighlights();
             string _keywords1 = CodeList.GetMethodsHighlights();
 
             textbox_ws.Lexing.Keywords[0] = _keywords0;
             textbox_ws.Lexing.Keywords[1] = _keywords1;
-
+            
 
             //set autocomplete
             List<string> _list = CodeList.GetMethodNames();

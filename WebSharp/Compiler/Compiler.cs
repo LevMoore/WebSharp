@@ -49,7 +49,7 @@ namespace Web_Sharp
             bool _useString = false;
             int _s = 0;
             int _c = 0;
-            MatchCollection mc = Regex.Matches(_fix, "[(){};=.\" ]", RegexOptions.Multiline);
+            MatchCollection mc = Regex.Matches(_fix, "[§(){};=.\" ]", RegexOptions.Multiline);
             foreach (Match m in mc)
             {
                 string _value = m.Value;

@@ -39,26 +39,6 @@ namespace Web_Sharp
             code += _code;
         }
 
-        public short CheckForClasToken(string _token)
-        {
-            for (int i = 0; i < CodeList.listClass.Count; i++)
-            {
-                if (_token == CodeList.listClass[i].name)
-                {
-                    if (CodeList.listClass[i].Run())
-                    {
-                        i = CodeList.listClass.Count;
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
-                }
-            }
-
-            return 2;
-        }
         public short CheckForDataTypeToken(string _token)
         {
             for (int i = 0; i < CodeList.listDataTypes.Count; i++)
@@ -79,6 +59,26 @@ namespace Web_Sharp
 
             return 2;
         }
+        public short CheckForLogicalsToken(string _token)
+        {
+            for (int i = 0; i < CodeList.listLogicals.Count; i++)
+            {
+                if (_token == CodeList.listLogicals[i].name)
+                {
+                    if (CodeList.listLogicals[i].Run())
+                    {
+                        i = CodeList.listLogicals.Count;
+                        return 0;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                }
+            }
+
+            return 2;
+        }
         public short CheckForMethodsToken(string _token)
         {
             for (int i = 0; i < CodeList.listMethods.Count; i++)
@@ -88,6 +88,26 @@ namespace Web_Sharp
                     if (CodeList.listMethods[i].Run())
                     {
                         i = CodeList.listMethods.Count;
+                        return 0;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                }
+            }
+
+            return 2;
+        }
+        public short CheckForClasToken(string _token)
+        {
+            for (int i = 0; i < CodeList.listClass.Count; i++)
+            {
+                if (_token == CodeList.listClass[i].name)
+                {
+                    if (CodeList.listClass[i].Run())
+                    {
+                        i = CodeList.listClass.Count;
                         return 0;
                     }
                     else

@@ -34,11 +34,23 @@ namespace Web_Sharp
                 {
                     //check for methods tokens
                     string _token = NextToken();
+                    if (_token == "")
+                    {
+                        return false;
+                    }
 
                     short _check = CheckForMethodsToken(_token);
                     if (_check == 1)//return error
                     {
                         return false;
+                    }
+                    else if(_check == 2)
+                    {
+                        _check = CheckForLogicalsToken(_token);
+                        if (_check == 1)//return error
+                        {
+                            return false;
+                        }
                     }
 
 
