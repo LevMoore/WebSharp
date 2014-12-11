@@ -57,6 +57,10 @@
     <Compile Include="Compiler\Methods\Document\DocumentFindByID_Code.cs" />
     <Compile Include="Compiler\Methods\Document\Document_Code.cs" />
     <Compile Include="Compiler\Methods\Document\ElementValues_Code.cs" />
+    <Compile Include="Compiler\Methods\History\HistoryBack_Code.cs" />
+    <Compile Include="Compiler\Methods\History\HistoryForward_Code.cs" />
+    <Compile Include="Compiler\Methods\History\HistoryGo_Code.cs" />
+    <Compile Include="Compiler\Methods\History\History_Code.cs" />
     <Compile Include="Compiler\Methods\Window\WindowNavigate_Code.cs" />
     <Compile Include="Compiler\Methods\Window\Window_Code.cs" />
     <Compile Include="Compiler\Other\BaseCode.cs" />

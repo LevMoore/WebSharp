@@ -20,35 +20,13 @@ namespace Web_Sharp
             {
                 AddCodeOnNewLine("if(");
 
-                int _open = 0;
-                bool _again = true;
-                while (_again)
+                ignoreSemicolon = true;
+                if (!StopOnSymbol(")"))
                 {
-                    string _token = NextToken();
-                    if (_token == "")
-                    {
-                        return false;
-                    }
-                    else if (_token == "(")
-                    {
-                        _open++;
-                    }
-
-                    AddCode(_token);
-
-                    //end
-                    if (_token == ")")
-                    {
-                        if (_open == 0)
-                        {
-                            _again = false;
-                        }
-                        else
-                        {
-                            _open--;
-                        }
-                    }
+                    return false;
                 }
+                ignoreSemicolon = false;
+                AddCode(")");
 
                 if (NextToken() == "{")
                 {

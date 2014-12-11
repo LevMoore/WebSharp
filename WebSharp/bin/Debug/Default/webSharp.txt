@@ -11,13 +11,18 @@ void ClickButton1()
 	Document.FindByID("button1").value = value;
 	Document.FindByID("pText").innerHTML = value2;
 
-	if(value2 == (1 + 1))
+	if(Document.FindByID("button1").value != Document.FindByID("pText").innerHTML)
 	{
-		Alert("1");
+		Show("123");
 	}
 }
 
 void ClickButton2()
 {
 	Window.Navigate("https://www.google.dk");
+}
+
+void Show(string _msg)
+{
+	Alert(_msg);
 }

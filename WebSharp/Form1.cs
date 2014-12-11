@@ -19,7 +19,7 @@ namespace Web_Sharp
         public Form1()
         {
             InitializeComponent();
-
+            
             //create folder
             string path = Environment.CurrentDirectory;
             if (!Directory.Exists(path + @"\Preview\"))

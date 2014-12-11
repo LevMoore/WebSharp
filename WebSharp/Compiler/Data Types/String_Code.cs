@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Web_Sharp
 {
@@ -17,17 +18,16 @@ namespace Web_Sharp
         public override bool Run()
         {
             string _name = NextToken();
+            AddCodeOnNewLine("var " + _name + " = ");
             if (NextToken() == "=")
             {
-                string _value = NextToken();
-                if (NextToken() == ";")
-                {
-                    AddCodeOnNewLine("var " + _name + " = " + _value + ";");
-                }
-                else
+                ignoreSemicolon = true;
+                if (!StopOnSymbol(";"))
                 {
                     return false;
                 }
+                ignoreSemicolon = false;
+                AddCode(";");
             }
             else
             {

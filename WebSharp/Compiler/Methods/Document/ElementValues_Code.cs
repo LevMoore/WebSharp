@@ -20,21 +20,31 @@ namespace Web_Sharp
             if (_token == "value")
             {
                 AddCode("value");
-                if (NextToken() == "=")
+                _token = NextToken();
+                if (_token == "=")
                 {
-                    AddCode("=" + NextToken() + ";");
+                    AddCode("=" + NextToken());
+                    AddCode(";");
                 }
-                else return false;
+                else
+                {
+                    tokenIndex--;
+                }
             }
             //innerHTML
             else if (_token == "innerHTML")
             {
                 AddCode("innerHTML");
-                if (NextToken() == "=")
+                _token = NextToken();
+                if (_token == "=")
                 {
-                    AddCode("=" + NextToken() + ";");
+                    AddCode("=" + NextToken());
+                    AddCode(";");
                 }
-                else return false;
+                else
+                {
+                    tokenIndex--;
+                }
             }
             else return false;
 

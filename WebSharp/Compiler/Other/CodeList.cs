@@ -23,7 +23,8 @@ namespace Web_Sharp
             new Java_Code(),
             new Alert_Code(),
             new Document_Code(),
-            new Window_Code()
+            new Window_Code(),
+            new History_Code()
         };
 
         //Class

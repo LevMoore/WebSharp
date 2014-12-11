@@ -7,6 +7,8 @@ namespace Web_Sharp
 {
     abstract class BaseCode
     {
+        public static bool ignoreSemicolon;
+
         public static List<string> tokens;
         public static int tokenIndex;
         public static string code;
@@ -36,6 +38,10 @@ namespace Web_Sharp
         }
         public void AddCode(string _code)
         {
+            if (_code == ";" && ignoreSemicolon)
+	        {
+                return;	   
+	        }
             code += _code;
         }
 
@@ -118,6 +124,64 @@ namespace Web_Sharp
             }
 
             return 2;
+        }
+
+        public bool StopOnSymbol(string _symbol)
+        {
+            int _open = 0;
+            bool _again = true;
+            while (_again)
+            {
+                string _token = NextToken();
+                if (_token == "")
+                {
+                    return false;
+                }
+                else if (_symbol == ")" && _token == "(")
+                {
+                    _open++;
+                }
+
+                //_return += _token;
+                bool _addToken = false;
+                short _check = CheckForMethodsToken(_token);
+                if (_check == 1)//return error
+                {
+                    return false;
+                }
+                else if (_check == 2)
+                {
+                    _check = CheckForLogicalsToken(_token);
+                    if (_check == 1)//return error
+                    {
+                        return false;
+                    }
+                    else if (_check == 2)
+                    {
+                        _addToken = true;
+                    }
+                }
+
+                //end
+                if (_token == _symbol)
+                {
+                    if (_open == 0)
+                    {
+                        _again = false;
+                    }
+                    else if (_symbol == ")")
+                    {
+                        _open--;
+                        AddCode(_token);
+                    }
+                }
+                else if(_addToken)
+                {
+                    AddCode(_token);
+                }
+            }
+
+            return true;
         }
 
         public bool RunSub(string _token)

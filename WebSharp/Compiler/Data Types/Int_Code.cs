@@ -17,24 +17,16 @@ namespace Web_Sharp
         public override bool Run()
         {
             string _name = NextToken();
+            AddCodeOnNewLine("var " + _name + " = ");
             if (NextToken() == "=")
             {
-                try
-                {
-                    int _value = int.Parse(NextToken());
-                    if (NextToken() == ";")
-                    {
-                        AddCodeOnNewLine("var " + _name + " = " + _value + ";");
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                catch
+                ignoreSemicolon = true;
+                if (!StopOnSymbol(";"))
                 {
                     return false;
                 }
+                ignoreSemicolon = false;
+                AddCode(";");
             }
             else
             {

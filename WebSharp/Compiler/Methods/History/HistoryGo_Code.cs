@@ -2,23 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Web_Sharp
 {
-    class Alert_Code : BaseCode
+    class HistoryGo_Code : BaseCode
     {
-        public Alert_Code()
+        public HistoryGo_Code()
         {
-            name = "Alert";
-            autoComplete = new List<string>() {};
-            highlight = "Alert";
+            name = "Go";
         }
 
         public override bool Run()
         {
             if (NextToken() == "(")
             {
-                AddCodeOnNewLine("alert(");
+                AddCode("go(");
                 ignoreSemicolon = true;
                 if (!StopOnSymbol(")"))
                 {
@@ -27,12 +26,13 @@ namespace Web_Sharp
                 ignoreSemicolon = false;
                 AddCode(")");
                 AddCode(";");
-            }
-            else
-            {
-                return false;
-            }
 
+                //string _value = NextToken();
+                //if (NextToken() == ")" && NextToken() == ";")
+                //{
+                //    AddCode("go(" + _value + ");");
+                //}
+            }
             return true;
         }
     }

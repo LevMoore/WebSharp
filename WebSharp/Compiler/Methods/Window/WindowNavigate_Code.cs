@@ -18,12 +18,21 @@ namespace Web_Sharp
         {
             if (NextToken() == "(")
             {
-                string _string = NextToken();
-                if (NextToken() == ")" && NextToken() == ";")
+                AddCode("location.href = ");
+                ignoreSemicolon = true;
+                if (!StopOnSymbol(")"))
                 {
-                    AddCode("location.href = " + _string + ";");
+                    return false;
                 }
-                else return false;
+                ignoreSemicolon = false;
+                AddCode(";");
+
+                //string _string = NextToken();
+                //if (NextToken() == ")" && NextToken() == ";")
+                //{
+                //    AddCode("location.href = " + _string + ";");
+                //}
+                //else return false;
             }
             else return false;
 
