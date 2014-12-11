@@ -91,7 +91,8 @@ namespace Web_Sharp
             //compile w# code to javascript
             Compiler _compiler = new Compiler();
             string _code = _compiler.CompileWSCode(textbox_ws.Text);
-            
+            textbox_java.Text = _code;
+
             //save javascript
             using (FileStream fs = File.Create(path + "script.js"))
             {

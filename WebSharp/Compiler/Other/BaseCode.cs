@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Web_Sharp
 {
@@ -142,8 +143,8 @@ namespace Web_Sharp
                     _open++;
                 }
 
-                //_return += _token;
                 bool _addToken = false;
+
                 short _check = CheckForMethodsToken(_token);
                 if (_check == 1)//return error
                 {
@@ -158,7 +159,15 @@ namespace Web_Sharp
                     }
                     else if (_check == 2)
                     {
-                        _addToken = true;
+                        _check = CheckForDataTypeToken(_token);
+                        if (_check == 1)//return error
+                        {
+                            return false;
+                        }
+                        else if (_check == 2)
+                        {
+                            _addToken = true;
+                        }
                     }
                 }
 
@@ -173,6 +182,7 @@ namespace Web_Sharp
                     {
                         _open--;
                         AddCode(_token);
+
                     }
                 }
                 else if(_addToken)

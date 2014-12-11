@@ -33,20 +33,29 @@
             this.button_compile = new System.Windows.Forms.Button();
             this.checkBox_autoOpen = new System.Windows.Forms.CheckBox();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.tabHTML = new System.Windows.Forms.TabPage();
-            this.tabCSS = new System.Windows.Forms.TabPage();
+            this.tab1HTML = new System.Windows.Forms.TabPage();
+            this.tab1CSS = new System.Windows.Forms.TabPage();
             this.textbox_css = new ScintillaNET.Scintilla();
-            this.tabWeb = new System.Windows.Forms.TabPage();
+            this.tab1Web = new System.Windows.Forms.TabPage();
             this.webBrowserHTML = new System.Windows.Forms.WebBrowser();
             this.button_save = new System.Windows.Forms.Button();
             this.button_openFolder = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tab2WSharp = new System.Windows.Forms.TabPage();
+            this.tab2Java = new System.Windows.Forms.TabPage();
+            this.tab2PHP = new System.Windows.Forms.TabPage();
+            this.textbox_java = new ScintillaNET.Scintilla();
             ((System.ComponentModel.ISupportInitialize)(this.textbox_ws)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textbox_html)).BeginInit();
             this.tabControl.SuspendLayout();
-            this.tabHTML.SuspendLayout();
-            this.tabCSS.SuspendLayout();
+            this.tab1HTML.SuspendLayout();
+            this.tab1CSS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textbox_css)).BeginInit();
-            this.tabWeb.SuspendLayout();
+            this.tab1Web.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tab2WSharp.SuspendLayout();
+            this.tab2Java.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textbox_java)).BeginInit();
             this.SuspendLayout();
             // 
             // textbox_ws
@@ -56,13 +65,13 @@
             this.textbox_ws.ConfigurationManager.CustomLocation = "ScintillaNET.xml";
             this.textbox_ws.ConfigurationManager.Language = "cs";
             this.textbox_ws.Folding.IsEnabled = false;
-            this.textbox_ws.Location = new System.Drawing.Point(568, 32);
+            this.textbox_ws.Location = new System.Drawing.Point(0, 0);
             this.textbox_ws.Margins.Margin2.IsClickable = false;
             this.textbox_ws.Margins.Margin2.IsFoldMargin = false;
             this.textbox_ws.Name = "textbox_ws";
             this.textbox_ws.Scrolling.HorizontalScrollTracking = false;
             this.textbox_ws.Scrolling.HorizontalScrollWidth = 2000;
-            this.textbox_ws.Size = new System.Drawing.Size(542, 512);
+            this.textbox_ws.Size = new System.Drawing.Size(542, 508);
             this.textbox_ws.Styles.Bits = 5;
             this.textbox_ws.Styles.BraceBad.FontName = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
             this.textbox_ws.Styles.BraceLight.FontName = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
@@ -118,9 +127,9 @@
             // 
             // tabControl
             // 
-            this.tabControl.Controls.Add(this.tabHTML);
-            this.tabControl.Controls.Add(this.tabCSS);
-            this.tabControl.Controls.Add(this.tabWeb);
+            this.tabControl.Controls.Add(this.tab1HTML);
+            this.tabControl.Controls.Add(this.tab1CSS);
+            this.tabControl.Controls.Add(this.tab1Web);
             this.tabControl.Location = new System.Drawing.Point(12, 12);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -128,27 +137,27 @@
             this.tabControl.TabIndex = 4;
             this.tabControl.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabHTML_Selecting);
             // 
-            // tabHTML
+            // tab1HTML
             // 
-            this.tabHTML.Controls.Add(this.textbox_html);
-            this.tabHTML.Location = new System.Drawing.Point(4, 22);
-            this.tabHTML.Name = "tabHTML";
-            this.tabHTML.Padding = new System.Windows.Forms.Padding(3);
-            this.tabHTML.Size = new System.Drawing.Size(542, 508);
-            this.tabHTML.TabIndex = 0;
-            this.tabHTML.Text = "HTML";
-            this.tabHTML.UseVisualStyleBackColor = true;
+            this.tab1HTML.Controls.Add(this.textbox_html);
+            this.tab1HTML.Location = new System.Drawing.Point(4, 22);
+            this.tab1HTML.Name = "tab1HTML";
+            this.tab1HTML.Padding = new System.Windows.Forms.Padding(3);
+            this.tab1HTML.Size = new System.Drawing.Size(542, 508);
+            this.tab1HTML.TabIndex = 0;
+            this.tab1HTML.Text = "HTML";
+            this.tab1HTML.UseVisualStyleBackColor = true;
             // 
-            // tabCSS
+            // tab1CSS
             // 
-            this.tabCSS.Controls.Add(this.textbox_css);
-            this.tabCSS.Location = new System.Drawing.Point(4, 22);
-            this.tabCSS.Name = "tabCSS";
-            this.tabCSS.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCSS.Size = new System.Drawing.Size(542, 508);
-            this.tabCSS.TabIndex = 2;
-            this.tabCSS.Text = "CSS";
-            this.tabCSS.UseVisualStyleBackColor = true;
+            this.tab1CSS.Controls.Add(this.textbox_css);
+            this.tab1CSS.Location = new System.Drawing.Point(4, 22);
+            this.tab1CSS.Name = "tab1CSS";
+            this.tab1CSS.Padding = new System.Windows.Forms.Padding(3);
+            this.tab1CSS.Size = new System.Drawing.Size(542, 508);
+            this.tab1CSS.TabIndex = 2;
+            this.tab1CSS.Text = "CSS";
+            this.tab1CSS.UseVisualStyleBackColor = true;
             // 
             // textbox_css
             // 
@@ -168,16 +177,16 @@
             this.textbox_css.Styles.Max.FontName = "Verdana\0\0\0\0\0\0\0\0\0\0\0\0\0";
             this.textbox_css.TabIndex = 2;
             // 
-            // tabWeb
+            // tab1Web
             // 
-            this.tabWeb.Controls.Add(this.webBrowserHTML);
-            this.tabWeb.Location = new System.Drawing.Point(4, 22);
-            this.tabWeb.Name = "tabWeb";
-            this.tabWeb.Padding = new System.Windows.Forms.Padding(3);
-            this.tabWeb.Size = new System.Drawing.Size(542, 508);
-            this.tabWeb.TabIndex = 1;
-            this.tabWeb.Text = "Preview";
-            this.tabWeb.UseVisualStyleBackColor = true;
+            this.tab1Web.Controls.Add(this.webBrowserHTML);
+            this.tab1Web.Location = new System.Drawing.Point(4, 22);
+            this.tab1Web.Name = "tab1Web";
+            this.tab1Web.Padding = new System.Windows.Forms.Padding(3);
+            this.tab1Web.Size = new System.Drawing.Size(542, 508);
+            this.tab1Web.TabIndex = 1;
+            this.tab1Web.Text = "Preview";
+            this.tab1Web.UseVisualStyleBackColor = true;
             // 
             // webBrowserHTML
             // 
@@ -208,26 +217,98 @@
             this.button_openFolder.UseVisualStyleBackColor = true;
             this.button_openFolder.Click += new System.EventHandler(this.button_openFolder_Click);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tab2WSharp);
+            this.tabControl1.Controls.Add(this.tab2Java);
+            this.tabControl1.Controls.Add(this.tab2PHP);
+            this.tabControl1.Location = new System.Drawing.Point(564, 12);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(550, 534);
+            this.tabControl1.TabIndex = 7;
+            // 
+            // tab2WSharp
+            // 
+            this.tab2WSharp.Controls.Add(this.textbox_ws);
+            this.tab2WSharp.Location = new System.Drawing.Point(4, 22);
+            this.tab2WSharp.Name = "tab2WSharp";
+            this.tab2WSharp.Padding = new System.Windows.Forms.Padding(3);
+            this.tab2WSharp.Size = new System.Drawing.Size(542, 508);
+            this.tab2WSharp.TabIndex = 0;
+            this.tab2WSharp.Text = "W#";
+            this.tab2WSharp.UseVisualStyleBackColor = true;
+            // 
+            // tab2Java
+            // 
+            this.tab2Java.Controls.Add(this.textbox_java);
+            this.tab2Java.Location = new System.Drawing.Point(4, 22);
+            this.tab2Java.Name = "tab2Java";
+            this.tab2Java.Padding = new System.Windows.Forms.Padding(3);
+            this.tab2Java.Size = new System.Drawing.Size(542, 508);
+            this.tab2Java.TabIndex = 1;
+            this.tab2Java.Text = "Java";
+            this.tab2Java.UseVisualStyleBackColor = true;
+            // 
+            // tab2PHP
+            // 
+            this.tab2PHP.Location = new System.Drawing.Point(4, 22);
+            this.tab2PHP.Name = "tab2PHP";
+            this.tab2PHP.Size = new System.Drawing.Size(542, 508);
+            this.tab2PHP.TabIndex = 2;
+            this.tab2PHP.Text = "PHP";
+            this.tab2PHP.UseVisualStyleBackColor = true;
+            // 
+            // textbox_java
+            // 
+            this.textbox_java.AutoComplete.ListString = "";
+            this.textbox_java.AutoComplete.MaxHeight = 10;
+            this.textbox_java.ConfigurationManager.Language = "js";
+            this.textbox_java.Folding.IsEnabled = false;
+            this.textbox_java.Location = new System.Drawing.Point(0, 0);
+            this.textbox_java.Margins.Margin2.IsClickable = false;
+            this.textbox_java.Margins.Margin2.IsFoldMargin = false;
+            this.textbox_java.Name = "textbox_java";
+            this.textbox_java.Scrolling.HorizontalScrollTracking = false;
+            this.textbox_java.Scrolling.HorizontalScrollWidth = 2000;
+            this.textbox_java.Size = new System.Drawing.Size(542, 508);
+            this.textbox_java.Styles.Bits = 5;
+            this.textbox_java.Styles.BraceBad.FontName = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
+            this.textbox_java.Styles.BraceLight.FontName = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
+            this.textbox_java.Styles.CallTip.FontName = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
+            this.textbox_java.Styles.ControlChar.FontName = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
+            this.textbox_java.Styles.Default.BackColor = System.Drawing.SystemColors.Window;
+            this.textbox_java.Styles.Default.FontName = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
+            this.textbox_java.Styles.IndentGuide.FontName = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
+            this.textbox_java.Styles.LastPredefined.FontName = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
+            this.textbox_java.Styles.LineNumber.FontName = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
+            this.textbox_java.Styles.Max.FontName = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
+            this.textbox_java.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1131, 582);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.button_openFolder);
             this.Controls.Add(this.button_save);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.checkBox_autoOpen);
             this.Controls.Add(this.button_compile);
-            this.Controls.Add(this.textbox_ws);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.textbox_ws)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textbox_html)).EndInit();
             this.tabControl.ResumeLayout(false);
-            this.tabHTML.ResumeLayout(false);
-            this.tabCSS.ResumeLayout(false);
+            this.tab1HTML.ResumeLayout(false);
+            this.tab1CSS.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.textbox_css)).EndInit();
-            this.tabWeb.ResumeLayout(false);
+            this.tab1Web.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tab2WSharp.ResumeLayout(false);
+            this.tab2Java.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.textbox_java)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,13 +321,18 @@
         private System.Windows.Forms.Button button_compile;
         private System.Windows.Forms.CheckBox checkBox_autoOpen;
         private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TabPage tabHTML;
-        private System.Windows.Forms.TabPage tabWeb;
+        private System.Windows.Forms.TabPage tab1HTML;
+        private System.Windows.Forms.TabPage tab1Web;
         private System.Windows.Forms.WebBrowser webBrowserHTML;
-        private System.Windows.Forms.TabPage tabCSS;
+        private System.Windows.Forms.TabPage tab1CSS;
         private ScintillaNET.Scintilla textbox_css;
         private System.Windows.Forms.Button button_save;
         private System.Windows.Forms.Button button_openFolder;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tab2WSharp;
+        private System.Windows.Forms.TabPage tab2Java;
+        private ScintillaNET.Scintilla textbox_java;
+        private System.Windows.Forms.TabPage tab2PHP;
     }
 }
 
