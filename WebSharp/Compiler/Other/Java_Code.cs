@@ -15,7 +15,7 @@ namespace Web_Sharp
 
         public override bool Run()
         {
-            AddCodeOnNewLine("");
+            AddCodeJava("");
             bool _again = true;
             while (_again)
             {
@@ -30,7 +30,7 @@ namespace Web_Sharp
                 }
                 else
                 {
-                    AddCode(_token);
+                    AddCodeJava(_token);
                 }
             }
 

@@ -19,7 +19,7 @@ namespace Web_Sharp
 
         public override bool Run()
         {
-            AddCodeOnNewLine("document.");
+            AddCodeJava("document.");
             if (NextToken() == ".")
             {
                 return RunSub(NextToken());

@@ -11,9 +11,10 @@ namespace Web_Sharp
         public static bool ignoreSemicolon;
         public static int tap;
 
-        public static List<string> tokens;
+        public static List<string> tokens = new List<string>();
         public static int tokenIndex;
-        public static string code;
+        public static string codeJava;
+        public static string codePHP;
 
         public string name;
         public List<string> autoComplete = new List<string>();
@@ -34,23 +35,69 @@ namespace Web_Sharp
             return _token;
         }
 
-        public void AddCodeOnNewLine(string _code)
+        public void AddCodeJava(string _code)
         {
-            string _tap = "";
-            for (int i = 0; i < tap; i++)
+            if (_code == ";")
             {
-                _tap += "\t";
-            }
+                if (ignoreSemicolon)
+                {
+                    return;
+                }
+                else
+                {
+                    codeJava += ";";
 
-            code += "\r" + _tap + _code;
+                    string _tap = "";
+                    for (int i = 0; i < tap; i++)
+                    {
+                        _tap += "\t";
+                    }
+
+                    codeJava += "\r";
+                    codeJava += _tap;
+                }
+            }
+            else if (_code == "}")
+            {
+                string _tap = "";
+                for (int i = 0; i < tap; i++)
+                {
+                    _tap += "\t";
+                }
+
+                codeJava += "\r";
+                codeJava += _tap + _code;
+
+                codeJava += "\r";
+                codeJava += _tap;
+            }
+            else if (_code == "{")
+            {
+                string _tap = "";
+                for (int i = 0; i < tap; i++)
+                {
+                    _tap += "\t";
+                }
+
+                codeJava += "\r";
+                codeJava += _tap + _code;
+
+                codeJava += "\r";
+                codeJava += _tap + "\t";
+            }
+            else
+            {
+                codeJava += _code;
+            }
         }
-        public void AddCode(string _code)
+        public bool AddCodeJavaIf(string _token)
         {
-            if (_code == ";" && ignoreSemicolon)
-	        {
-                return;	   
-	        }
-            code += _code;
+            if (NextToken() == _token)
+            {
+                AddCodeJava(_token);
+                return true;
+            }
+            return false;
         }
 
         public short CheckForDataTypeToken(string _token)
@@ -149,6 +196,10 @@ namespace Web_Sharp
                 {
                     _open++;
                 }
+                else if (_symbol == "}" && _token == "{")
+                {
+                    _open++;
+                }
 
                 bool _addToken = false;
 
@@ -185,16 +236,15 @@ namespace Web_Sharp
                     {
                         _again = false;
                     }
-                    else if (_symbol == ")")
+                    else if (_symbol == ")" || _symbol == "}")
                     {
                         _open--;
-                        AddCode(_token);
-
+                        AddCodeJava(_token);
                     }
                 }
                 else if(_addToken)
                 {
-                    AddCode(_token);
+                    AddCodeJava(_token);
                 }
             }
 

@@ -22,14 +22,14 @@ namespace Web_Sharp
 
         public override bool Run()
         {
-            AddCodeOnNewLine("window.history.");
+            AddCodeJava("window.history.");
             if (NextToken() == ".")
             {
                 string _token = NextToken();
                 if (_token == "length")
                 {
-                    AddCode("length");
-                    AddCode(";");
+                    AddCodeJava("length");
+                    AddCodeJava(";");
                     return true;
                 }
                 else

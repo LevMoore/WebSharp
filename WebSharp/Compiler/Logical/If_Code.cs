@@ -18,7 +18,7 @@ namespace Web_Sharp
         {
             if (NextToken() == "(")
             {
-                AddCodeOnNewLine("if(");
+                AddCodeJava("if(");
 
                 ignoreSemicolon = true;
                 if (!StopOnSymbol(")"))
@@ -26,49 +26,24 @@ namespace Web_Sharp
                     return false;
                 }
                 ignoreSemicolon = false;
-                AddCode(")");
+                AddCodeJava(")");
 
                 if (NextToken() == "{")
                 {
-                    AddCodeOnNewLine("{");
+                    AddCodeJava("{");
                     tap++;
+
+                    if (!StopOnSymbol("}"))
+                    {
+                        return false;
+                    }
+
+                    tap--;
+                    AddCodeJava("}");
                 }
                 else
                 {
                     return false;
-                }
-
-                bool _again2 = true;
-                while (_again2)
-                {
-                    //check for methods tokens
-                    string _token = NextToken();
-                    if (_token == "")
-                    {
-                        return false;
-                    }
-
-                    short _check = CheckForMethodsToken(_token);
-                    if (_check == 1)//return error
-                    {
-                        return false;
-                    }
-                    else if (_check == 2)
-                    {
-                        _check = CheckForLogicalsToken(_token);
-                        if (_check == 1)//return error
-                        {
-                            return false;
-                        }
-                    }
-
-                    //end
-                    if (_token == "}")
-                    {
-                        tap--;
-                        AddCodeOnNewLine("}");
-                        _again2 = false;
-                    }
                 }
             }
             return true;

@@ -1,5 +1,5 @@
-﻿string value = "1";
-int value2 = 2;
+﻿var value = "1";
+var value2 = 2;
 
 void Start()
 {
@@ -22,7 +22,7 @@ void ClickButton2()
 	Window.Navigate("https://www.google.dk");
 }
 
-void Show(string _msg)
+void Show(msg)
 {
-	Alert(_msg);
+	Alert(msg);
 }

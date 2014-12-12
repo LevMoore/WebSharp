@@ -9,8 +9,7 @@ namespace Web_Sharp
     {
         //Data types
         public static List<BaseCode> listDataTypes = new List<BaseCode>() {
-            new String_Code(),
-            new Int_Code()
+            new Var_Code()
         };
 
         //Logical

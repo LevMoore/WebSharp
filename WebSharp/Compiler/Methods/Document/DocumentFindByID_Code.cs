@@ -22,7 +22,7 @@ namespace Web_Sharp
                 string _string = NextToken();
                 if (NextToken() == ")" && NextToken() == ".")
                 {
-                    AddCode("getElementById(" + _string + ").");
+                    AddCodeJava("getElementById(" + _string + ").");
 
                     return _code.Run();
                 }

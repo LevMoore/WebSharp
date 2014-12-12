@@ -17,9 +17,13 @@ namespace Web_Sharp
         {
             if (NextToken() == "(" && NextToken() == ")" && NextToken() == ";")
             {
-                AddCode("back();");
+                AddCodeJava("back();");
+                return true;
             }
-            return true;
+            else
+            {
+                return false;
+            }
         }
     }
 }

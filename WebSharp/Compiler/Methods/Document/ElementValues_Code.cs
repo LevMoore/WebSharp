@@ -16,39 +16,12 @@ namespace Web_Sharp
         public override bool Run()
         {
             string _token = NextToken();
-            //value
-            if (_token == "value")
+            if (_token == "value" || _token == "innerHTML")
             {
-                AddCode("value");
-                _token = NextToken();
-                if (_token == "=")
-                {
-                    AddCode("=" + NextToken());
-                    AddCode(";");
-                }
-                else
-                {
-                    tokenIndex--;
-                }
-            }
-            //innerHTML
-            else if (_token == "innerHTML")
-            {
-                AddCode("innerHTML");
-                _token = NextToken();
-                if (_token == "=")
-                {
-                    AddCode("=" + NextToken());
-                    AddCode(";");
-                }
-                else
-                {
-                    tokenIndex--;
-                }
+                AddCodeJava(_token);
+                return true;
             }
             else return false;
-
-            return true;
         }
     }
 }

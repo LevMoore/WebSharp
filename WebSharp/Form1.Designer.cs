@@ -43,8 +43,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab2WSharp = new System.Windows.Forms.TabPage();
             this.tab2Java = new System.Windows.Forms.TabPage();
-            this.tab2PHP = new System.Windows.Forms.TabPage();
             this.textbox_java = new ScintillaNET.Scintilla();
+            this.tab2PHP = new System.Windows.Forms.TabPage();
+            this.textbox_php = new ScintillaNET.Scintilla();
             ((System.ComponentModel.ISupportInitialize)(this.textbox_ws)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textbox_html)).BeginInit();
             this.tabControl.SuspendLayout();
@@ -56,6 +57,8 @@
             this.tab2WSharp.SuspendLayout();
             this.tab2Java.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textbox_java)).BeginInit();
+            this.tab2PHP.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textbox_php)).BeginInit();
             this.SuspendLayout();
             // 
             // textbox_ws
@@ -250,15 +253,6 @@
             this.tab2Java.Text = "Java";
             this.tab2Java.UseVisualStyleBackColor = true;
             // 
-            // tab2PHP
-            // 
-            this.tab2PHP.Location = new System.Drawing.Point(4, 22);
-            this.tab2PHP.Name = "tab2PHP";
-            this.tab2PHP.Size = new System.Drawing.Size(542, 508);
-            this.tab2PHP.TabIndex = 2;
-            this.tab2PHP.Text = "PHP";
-            this.tab2PHP.UseVisualStyleBackColor = true;
-            // 
             // textbox_java
             // 
             this.textbox_java.AutoComplete.ListString = "";
@@ -285,6 +279,42 @@
             this.textbox_java.Styles.Max.FontName = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
             this.textbox_java.TabIndex = 1;
             // 
+            // tab2PHP
+            // 
+            this.tab2PHP.Controls.Add(this.textbox_php);
+            this.tab2PHP.Location = new System.Drawing.Point(4, 22);
+            this.tab2PHP.Name = "tab2PHP";
+            this.tab2PHP.Size = new System.Drawing.Size(542, 508);
+            this.tab2PHP.TabIndex = 2;
+            this.tab2PHP.Text = "PHP";
+            this.tab2PHP.UseVisualStyleBackColor = true;
+            // 
+            // textbox_php
+            // 
+            this.textbox_php.AutoComplete.ListString = "";
+            this.textbox_php.AutoComplete.MaxHeight = 10;
+            this.textbox_php.ConfigurationManager.Language = "phpscript";
+            this.textbox_php.Folding.IsEnabled = false;
+            this.textbox_php.Location = new System.Drawing.Point(0, 0);
+            this.textbox_php.Margins.Margin2.IsClickable = false;
+            this.textbox_php.Margins.Margin2.IsFoldMargin = false;
+            this.textbox_php.Name = "textbox_php";
+            this.textbox_php.Scrolling.HorizontalScrollTracking = false;
+            this.textbox_php.Scrolling.HorizontalScrollWidth = 2000;
+            this.textbox_php.Size = new System.Drawing.Size(542, 508);
+            this.textbox_php.Styles.Bits = 5;
+            this.textbox_php.Styles.BraceBad.FontName = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
+            this.textbox_php.Styles.BraceLight.FontName = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
+            this.textbox_php.Styles.CallTip.FontName = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
+            this.textbox_php.Styles.ControlChar.FontName = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
+            this.textbox_php.Styles.Default.BackColor = System.Drawing.SystemColors.Window;
+            this.textbox_php.Styles.Default.FontName = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
+            this.textbox_php.Styles.IndentGuide.FontName = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
+            this.textbox_php.Styles.LastPredefined.FontName = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
+            this.textbox_php.Styles.LineNumber.FontName = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
+            this.textbox_php.Styles.Max.FontName = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
+            this.textbox_php.TabIndex = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -309,6 +339,8 @@
             this.tab2WSharp.ResumeLayout(false);
             this.tab2Java.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.textbox_java)).EndInit();
+            this.tab2PHP.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.textbox_php)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,6 +365,7 @@
         private System.Windows.Forms.TabPage tab2Java;
         private ScintillaNET.Scintilla textbox_java;
         private System.Windows.Forms.TabPage tab2PHP;
+        private ScintillaNET.Scintilla textbox_php;
     }
 }
 

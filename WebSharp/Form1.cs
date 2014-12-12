@@ -262,8 +262,9 @@ namespace Web_Sharp
         {
             //compile w# code to javascript
             Compiler _compiler = new Compiler();
-            string _code = _compiler.CompileWSCode(textbox_ws.Text);
-            textbox_java.Text = _code;
+            string[] _code = _compiler.CompileWSCode(textbox_ws.Text);
+            textbox_java.Text = _code[0];
+            textbox_php.Text = _code[1];
         }
 
         private void button_save_Click(object sender, EventArgs e)
@@ -292,10 +293,18 @@ namespace Web_Sharp
             }
 
             //save javascript
-            string _code = textbox_java.Text;
+            string _codeJava = textbox_java.Text;
             using (FileStream fs = File.Create(path + @"\Save\script.js"))
             {
-                Byte[] info = new UTF8Encoding(true).GetBytes(_code);
+                Byte[] info = new UTF8Encoding(true).GetBytes(_codeJava);
+                fs.Write(info, 0, info.Length);
+            }
+
+            //save php
+            string _codePHP = textbox_php.Text;
+            using (FileStream fs = File.Create(path + @"\Save\script.php"))
+            {
+                Byte[] info = new UTF8Encoding(true).GetBytes(_codePHP);
                 fs.Write(info, 0, info.Length);
             }
 

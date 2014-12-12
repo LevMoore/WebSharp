@@ -6,13 +6,13 @@ using System.Windows.Forms;
 
 namespace Web_Sharp
 {
-    class String_Code : BaseCode
+    class Var_Code : BaseCode
     {
-        public String_Code()
+        public Var_Code()
         {
-            name = "string";
+            name = "var";
             autoComplete = new List<string>() {};
-            highlight = "string";
+            highlight = "var";
         }
 
         public override bool Run()
@@ -22,23 +22,19 @@ namespace Web_Sharp
 
             if (_token == "=")
             {
-                AddCodeOnNewLine("var " + _name + " = ");
+                AddCodeJava("var " + _name + " = ");
                 ignoreSemicolon = true;
                 if (!StopOnSymbol(";"))
                 {
                     return false;
                 }
                 ignoreSemicolon = false;
-                AddCode(";");
+                AddCodeJava(";");
             }
-            else if (_token == ",")
+            else if (_token == ";")
             {
-                AddCode(_name + ",");
-            }
-            else if (_token == ")")
-            {
-                AddCode(_name);
-                tokenIndex--;
+                AddCodeJava("var " + _name);
+                AddCodeJava(";");
             }
             else
             {

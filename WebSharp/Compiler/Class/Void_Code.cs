@@ -22,62 +22,38 @@ namespace Web_Sharp
             {
                 if (_name == "Start")
                 {
-                    AddCodeOnNewLine("window.onload = function ()");
+                    if (NextToken() == ")")
+                    {
+                        AddCodeJava("window.onload = function ()");
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
                 else
                 {
-                    AddCodeOnNewLine("function " + _name + "(");
+                    AddCodeJava("function " + _name + "(");
                     ignoreSemicolon = true;
                     if (!StopOnSymbol(")"))
                     {
                         return false;
                     }
                     ignoreSemicolon = false;
-                    AddCode(")");
+                    AddCodeJava(")");
                 }
-                AddCodeOnNewLine("{");
-                tap++;
-
-                bool _again = true;
-                while (_again)
+                if (NextToken() == "{")
                 {
-                    //check for methods tokens
-                    string _token = NextToken();
-                    if (_token == "")
+                    AddCodeJava("{");
+                    tap++;
+
+                    if (!StopOnSymbol("}"))
                     {
                         return false;
                     }
 
-                    short _check = CheckForMethodsToken(_token);
-                    if (_check == 1)//return error
-                    {
-                        return false;
-                    }
-                    else if (_check == 2)
-                    {
-                        _check = CheckForLogicalsToken(_token);
-                        if (_check == 1)//return error
-                        {
-                            return false;
-                        }
-                        else if (_check == 2)
-                        {
-                            _check = CheckForDataTypeToken(_token);
-                            if (_check == 1)//return error
-                            {
-                                return false;
-                            }
-                        }
-                    }
-
-
-                    //end
-                    if (_token == "}")
-                    {
-                        tap--;
-                        AddCodeOnNewLine("}");
-                        _again = false;
-                    }
+                    tap--;
+                    AddCodeJava("}");
                 }
             }
             else

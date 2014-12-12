@@ -17,21 +17,16 @@ namespace Web_Sharp
         {
             if (NextToken() == "(")
             {
-                AddCode("go(");
+                AddCodeJava("go(");
                 ignoreSemicolon = true;
                 if (!StopOnSymbol(")"))
                 {
                     return false;
                 }
                 ignoreSemicolon = false;
-                AddCode(")");
-                AddCode(";");
+                AddCodeJava(")");
 
-                //string _value = NextToken();
-                //if (NextToken() == ")" && NextToken() == ";")
-                //{
-                //    AddCode("go(" + _value + ");");
-                //}
+                return AddCodeJavaIf(";");
             }
             return true;
         }

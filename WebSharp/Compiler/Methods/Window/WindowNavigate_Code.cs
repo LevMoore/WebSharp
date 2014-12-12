@@ -18,25 +18,17 @@ namespace Web_Sharp
         {
             if (NextToken() == "(")
             {
-                AddCode("location.href = ");
+                AddCodeJava("location.href = ");
                 ignoreSemicolon = true;
                 if (!StopOnSymbol(")"))
                 {
                     return false;
                 }
                 ignoreSemicolon = false;
-                AddCode(";");
 
-                //string _string = NextToken();
-                //if (NextToken() == ")" && NextToken() == ";")
-                //{
-                //    AddCode("location.href = " + _string + ";");
-                //}
-                //else return false;
+                return AddCodeJavaIf(";");
             }
             else return false;
-
-            return true;
         }
     }
 }

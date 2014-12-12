@@ -10,28 +10,30 @@ namespace Web_Sharp
 {
     class Compiler
     {
-        public string CompileWSCode(string _source)
+        public string[] CompileWSCode(string _source)
         {
             List<string> _tokens = GetTokens(_source);
 
             BaseCode.tokens = _tokens;
             BaseCode.tokenIndex = 0;
-            BaseCode.code = "";
+            BaseCode.codeJava = "";
 
-            string _code;
+            string[] _code = new string[2];
             Class_Code _class = new Class_Code();
             if(_class.Run())
             {
-                _code = BaseCode.code;
+                _code[0] = BaseCode.codeJava;
+                _code[1] = BaseCode.codePHP;
             }
             else
             {
-                _code = BaseCode.code + " #null";
+                _code[0] = BaseCode.codeJava + " #null";
+                _code[1] = BaseCode.codePHP + " #null";
             }
 
             BaseCode.tokens = new List<string>();
             BaseCode.tokenIndex = 0;
-            BaseCode.code = "";
+            BaseCode.codeJava = "";
 
             return _code;
         }

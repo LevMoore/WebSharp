@@ -18,22 +18,21 @@ namespace Web_Sharp
         {
             if (NextToken() == "(")
             {
-                AddCodeOnNewLine("alert(");
+                AddCodeJava("alert(");
                 ignoreSemicolon = true;
                 if (!StopOnSymbol(")"))
                 {
                     return false;
                 }
                 ignoreSemicolon = false;
-                AddCode(")");
-                AddCode(";");
+                AddCodeJava(")");
+
+                return AddCodeJavaIf(";");
             }
             else
             {
                 return false;
             }
-
-            return true;
         }
     }
 }

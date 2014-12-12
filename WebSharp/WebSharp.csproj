@@ -50,11 +50,10 @@
   <ItemGroup>
     <Compile Include="Compiler\Class\Void_Code.cs" />
     <Compile Include="Compiler\Compiler.cs" />
-    <Compile Include="Compiler\Data Types\Int_Code.cs" />
-    <Compile Include="Compiler\Data Types\String_Code.cs" />
+    <Compile Include="Compiler\Data Types\Var_Code.cs" />
     <Compile Include="Compiler\Logical\If_Code.cs" />
     <Compile Include="Compiler\Logical\While_Code.cs" />
-    <Compile Include="Compiler\Methods\Alert_Code.cs" />
+    <Compile Include="Compiler\Methods\Alert\Alert_Code.cs" />
     <Compile Include="Compiler\Methods\Document\DocumentFindByID_Code.cs" />
     <Compile Include="Compiler\Methods\Document\Document_Code.cs" />
     <Compile Include="Compiler\Methods\Document\ElementValues_Code.cs" />
