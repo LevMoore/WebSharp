@@ -17,9 +17,11 @@ namespace Web_Sharp
         public override bool Run()
         {
             string _name = NextToken();
-            AddCodeOnNewLine("var " + _name + " = ");
-            if (NextToken() == "=")
+            string _token = NextToken();
+
+            if (_token == "=")
             {
+                AddCodeOnNewLine("var " + _name + " = ");
                 ignoreSemicolon = true;
                 if (!StopOnSymbol(";"))
                 {
@@ -28,11 +30,19 @@ namespace Web_Sharp
                 ignoreSemicolon = false;
                 AddCode(";");
             }
+            else if (_token == ",")
+            {
+                AddCode(_name + ",");
+            }
+            else if (_token == ")")
+            {
+                AddCode(_name);
+                tokenIndex--;
+            }
             else
             {
                 return false;
             }
-
             return true;
         }
     }

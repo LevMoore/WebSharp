@@ -33,11 +33,11 @@ namespace Web_Sharp
             }
             else if (_token == ",")
             {
-                AddCode("var " + _name + ",");
+                AddCode(_name + ",");
             }
             else if (_token == ")")
             {
-                AddCode("var " + _name);
+                AddCode(_name);
                 tokenIndex--;
             }
             else

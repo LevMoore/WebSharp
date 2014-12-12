@@ -9,6 +9,7 @@ namespace Web_Sharp
     abstract class BaseCode
     {
         public static bool ignoreSemicolon;
+        public static int tap;
 
         public static List<string> tokens;
         public static int tokenIndex;
@@ -35,7 +36,13 @@ namespace Web_Sharp
 
         public void AddCodeOnNewLine(string _code)
         {
-            code += "\r" + _code;
+            string _tap = "";
+            for (int i = 0; i < tap; i++)
+            {
+                _tap += "\t";
+            }
+
+            code += "\r" + _tap + _code;
         }
         public void AddCode(string _code)
         {

@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace Web_Sharp
 {
-    class If_Code : BaseCode
+    class While_Code : BaseCode
     {
-        public If_Code()
+        public While_Code()
         {
-            name = "if";
-            highlight = "if";
+            name = "while";
+            highlight = "while";
         }
 
         public override bool Run()
         {
             if (NextToken() == "(")
             {
-                AddCodeOnNewLine("if(");
+                AddCodeOnNewLine("while(");
 
                 ignoreSemicolon = true;
                 if (!StopOnSymbol(")"))

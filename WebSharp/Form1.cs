@@ -71,54 +71,19 @@ namespace Web_Sharp
             //set autocomplete
             List<string> _list = CodeList.GetMethodNames();
             _list.AddRange(CodeList.GetDataTypeNames());
+            _list.AddRange(CodeList.GetLogicalNames());
             _list.Sort();
             textbox_ws.AutoComplete.List = _list;
             textbox_ws.AutoComplete.SingleLineAccept = false;
         }
 
-        private void button_compile_Click(object sender, EventArgs e)
+        private void tabHTML_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            string path = Environment.CurrentDirectory + @"\Preview\";
-
-            CompileJavaCode();
-
-            UpdatePreview();
-        }
-        void CompileJavaCode()
-        {
-            string path = Environment.CurrentDirectory + @"\Preview\";
-
-            //compile w# code to javascript
-            Compiler _compiler = new Compiler();
-            string _code = _compiler.CompileWSCode(textbox_ws.Text);
-            textbox_java.Text = _code;
-
-            //save javascript
-            using (FileStream fs = File.Create(path + "script.js"))
+            if (tabControl.SelectedIndex == 2)
             {
-                Byte[] info = new UTF8Encoding(true).GetBytes(_code);
-                fs.Write(info, 0, info.Length);
+                UpdatePreview();
             }
         }
-        void CompileHTML_CSS()
-        {
-            string path = Environment.CurrentDirectory + @"\Preview\";
-
-            //save html
-            using (FileStream fs = File.Create(path + "index.html"))
-            {
-                Byte[] info = new UTF8Encoding(true).GetBytes(textbox_html.Text);
-                fs.Write(info, 0, info.Length);
-            }
-
-            //save css
-            using (FileStream fs = File.Create(path + "style.css"))
-            {
-                Byte[] info = new UTF8Encoding(true).GetBytes(textbox_css.Text);
-                fs.Write(info, 0, info.Length);
-            }
-        }
-
         private void textbox_ws_CharAdded(object sender, ScintillaNET.CharAddedEventArgs e)
         {
             char _c = e.Ch;
@@ -209,6 +174,14 @@ namespace Web_Sharp
                 }
             }
         }
+        private void textbox_html_CharAdded(object sender, ScintillaNET.CharAddedEventArgs e)
+        {
+            char _c = e.Ch;
+            if (Char.IsLetterOrDigit(_c))
+            {
+                textbox_html.AutoComplete.Show();
+            }
+        }
         private List<string> FindAutoComplete(int _pos)
         {
             List<string> _return = new List<string>();
@@ -279,38 +252,35 @@ namespace Web_Sharp
             return _return;
         }
 
-        private void textbox_html_CharAdded(object sender, ScintillaNET.CharAddedEventArgs e)
-        {
-            char _c = e.Ch;
-            if (Char.IsLetterOrDigit(_c))
-            {
-                textbox_html.AutoComplete.Show();
-            }
-        }
 
-        private void tabHTML_Selecting(object sender, TabControlCancelEventArgs e)
+        private void button_compile_Click(object sender, EventArgs e)
         {
-            if (tabControl.SelectedIndex == 2)
-            {
-                CompileHTML_CSS();
-                UpdatePreview();
-            }
+            CompileWSharpCode();
+            UpdatePreview();
         }
-
-        void UpdatePreview()
+        void CompileWSharpCode()
         {
-            string path = Environment.CurrentDirectory + @"\Preview\index.html";
-            webBrowserHTML.ScriptErrorsSuppressed = true;
-            webBrowserHTML.Url = new Uri(path);
+            //compile w# code to javascript
+            Compiler _compiler = new Compiler();
+            string _code = _compiler.CompileWSCode(textbox_ws.Text);
+            textbox_java.Text = _code;
         }
 
         private void button_save_Click(object sender, EventArgs e)
         {
+            Save();
+
+            //auto open
+            if (checkBox_autoOpen.Checked)
+            {
+                Process.Start(Environment.CurrentDirectory + @"\Save\index.html");
+            }
+        }
+        private void Save()
+        {
             string path = Environment.CurrentDirectory;
 
-            CompileJavaCode();
-            CompileHTML_CSS();
-
+            //clear folder
             System.IO.DirectoryInfo downloadedMessageInfo = new DirectoryInfo(path + @"\Save\");
             foreach (FileInfo file in downloadedMessageInfo.GetFiles())
             {
@@ -321,60 +291,79 @@ namespace Web_Sharp
                 dir.Delete(true);
             }
 
-            DirectoryCopy(path + @"\Preview\", path + @"\Save\", true);
-
-            UpdatePreview();
-
-            //auto open
-            if (checkBox_autoOpen.Checked)
+            //save javascript
+            string _code = textbox_java.Text;
+            using (FileStream fs = File.Create(path + @"\Save\script.js"))
             {
-                Process.Start(path + @"\Save\index.html");
-            }
-        }
-
-        private static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs)
-        {
-            // Get the subdirectories for the specified directory.
-            DirectoryInfo dir = new DirectoryInfo(sourceDirName);
-            DirectoryInfo[] dirs = dir.GetDirectories();
-
-            if (!dir.Exists)
-            {
-                throw new DirectoryNotFoundException(
-                    "Source directory does not exist or could not be found: "
-                    + sourceDirName);
+                Byte[] info = new UTF8Encoding(true).GetBytes(_code);
+                fs.Write(info, 0, info.Length);
             }
 
-            // If the destination directory doesn't exist, create it. 
-            if (!Directory.Exists(destDirName))
+            //save html
+            using (FileStream fs = File.Create(path + @"\Save\index.html"))
             {
-                Directory.CreateDirectory(destDirName);
+                Byte[] info = new UTF8Encoding(true).GetBytes(textbox_html.Text);
+                fs.Write(info, 0, info.Length);
             }
 
-            // Get the files in the directory and copy them to the new location.
-            FileInfo[] files = dir.GetFiles();
-            foreach (FileInfo file in files)
+            //save css
+            using (FileStream fs = File.Create(path + @"\Save\style.css"))
             {
-                string temppath = Path.Combine(destDirName, file.Name);
-                file.CopyTo(temppath, false);
-            }
-
-            // If copying subdirectories, copy them and their contents to new location. 
-            if (copySubDirs)
-            {
-                foreach (DirectoryInfo subdir in dirs)
-                {
-                    string temppath = Path.Combine(destDirName, subdir.Name);
-                    DirectoryCopy(subdir.FullName, temppath, copySubDirs);
-                }
+                Byte[] info = new UTF8Encoding(true).GetBytes(textbox_css.Text);
+                fs.Write(info, 0, info.Length);
             }
         }
 
         private void button_openFolder_Click(object sender, EventArgs e)
         {
+            OpenFolder();
+        }
+        private void OpenFolder()
+        {
+            string path = Environment.CurrentDirectory;
+            Process.Start(path + @"\Save\");
+        }
+
+        void UpdatePreview()
+        {
             string path = Environment.CurrentDirectory;
 
-            Process.Start(path + @"\Save\");
+            //clear folder
+            System.IO.DirectoryInfo downloadedMessageInfo = new DirectoryInfo(path + @"\Preview\");
+            foreach (FileInfo file in downloadedMessageInfo.GetFiles())
+            {
+                file.Delete();
+            }
+            foreach (DirectoryInfo dir in downloadedMessageInfo.GetDirectories())
+            {
+                dir.Delete(true);
+            }
+
+            //save javascript
+            CompileWSharpCode();
+            string _code = textbox_java.Text;
+            using (FileStream fs = File.Create(path + @"\Preview\script.js"))
+            {
+                Byte[] info = new UTF8Encoding(true).GetBytes(_code);
+                fs.Write(info, 0, info.Length);
+            }
+
+            //save html
+            using (FileStream fs = File.Create(path + @"\Preview\index.html"))
+            {
+                Byte[] info = new UTF8Encoding(true).GetBytes(textbox_html.Text);
+                fs.Write(info, 0, info.Length);
+            }
+
+            //save css
+            using (FileStream fs = File.Create(path + @"\Preview\style.css"))
+            {
+                Byte[] info = new UTF8Encoding(true).GetBytes(textbox_css.Text);
+                fs.Write(info, 0, info.Length);
+            }
+
+            webBrowserHTML.ScriptErrorsSuppressed = true;
+            webBrowserHTML.Url = new Uri(path + @"\Preview\index.html");
         }
     }
 }

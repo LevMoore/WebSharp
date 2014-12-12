@@ -36,6 +36,7 @@ namespace Web_Sharp
                     AddCode(")");
                 }
                 AddCodeOnNewLine("{");
+                tap++;
 
                 bool _again = true;
                 while (_again)
@@ -73,6 +74,7 @@ namespace Web_Sharp
                     //end
                     if (_token == "}")
                     {
+                        tap--;
                         AddCodeOnNewLine("}");
                         _again = false;
                     }

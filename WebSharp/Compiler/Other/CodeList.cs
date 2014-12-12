@@ -15,7 +15,8 @@ namespace Web_Sharp
 
         //Logical
         public static List<BaseCode> listLogicals = new List<BaseCode>() {
-            new If_Code()
+            new If_Code(),
+            new While_Code()
         };
 
         //Methods
